@@ -28,7 +28,7 @@ Note : output images are stored in the images directory and also create the /opt
 
    git clone https://github.com/sharad0427/PTC-Assignment.git
 
-   After cloning the repo you will find the docker-compose.yaml file & war , conf , images directory.
+   After cloning the repo got to PTC-Assignment directory you will find the docker-compose.yaml file & war , conf , images directory.
 
    1: war file contained the 2 war file namely node1.war & node2.war (sample web application).
 
