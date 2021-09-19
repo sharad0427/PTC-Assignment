@@ -1,0 +1,36 @@
+services:
+  nginx-server:
+    image: nginx:latest 
+    ports:
+      - "80:80"
+    volumes:
+      - ./conf/index.html:/usr/share/nginx/html/index.html
+      - ./conf/nginx.conf:/etc/nginx/nginx.conf
+
+  web1:
+    image: tomcat
+    ports:
+      - '8080:8080'
+    volumes:    
+      - ./war/node1.war:/usr/local/tomcat/webapps/SampleApp.war
+
+  web2:
+    image: tomcat
+    ports:
+      - '8081:8080'
+    volumes:
+      - ./war/node2.war:/usr/local/tomcat/webapps/SampleApp.war
+
+  db:
+     image: mysql:5.7
+     volumes:
+       - /opt/test:/var/lib/mysql
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: testdb1
+       MYSQL_USER: testuser
+       MYSQL_PASSWORD: root
+     ports:
+       - 3306:3306
+
+
